@@ -899,7 +899,7 @@ footer {
     .chip-stage {min-height:450px}
     .vip-chip {max-width:430px}
     .final-grid {gap:35px}
-    .final h2 {font-size:92px}
+    .final h2 {font-size:clamp(60px,7vw,76px)}
 }
 
 @media(max-width:900px) {
@@ -919,7 +919,7 @@ footer {
 
     .final {width:min(700px,calc(100% - 32px));padding:44px 42px}
     .final-grid {grid-template-columns:minmax(0,1fr) 210px;gap:22px}
-    .final h2 {font-size:clamp(58px,9vw,78px)}
+    .final h2 {font-size:clamp(48px,6vw,60px)}
 
     .hero-grid {
         gap: 80px
@@ -968,6 +968,33 @@ footer {
     .footer-main {
         grid-template-columns: 1fr;
         gap: 24px
+    }
+}
+
+@media(max-width:760px) {
+    .final {
+        width: min(620px, calc(100% - 32px));
+        margin: 60px auto;
+        padding: 46px clamp(22px, 6vw, 38px)
+    }
+
+    .final-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px
+    }
+
+    .final-copy {
+        text-align: center
+    }
+
+    .final h2 {
+        font-size: clamp(48px, 12vw, 72px);
+        letter-spacing: clamp(-5px, -.7vw, -2px);
+        margin-bottom: 28px
+    }
+
+    .phone-scene {
+        min-height: 400px
     }
 }
 
@@ -1045,16 +1072,17 @@ footer {
         align-items: center
     }
 
-    .final {width:calc(100% - 28px);margin:55px auto;padding:44px 20px}
-    .final-grid {grid-template-columns:1fr;gap:22px}
-    .final-copy {text-align:center}
+    .final {width:calc(100% - 28px);margin:50px auto;padding:40px 18px}
+    .final-grid {gap:18px}
 
     .final h2 {
-        font-size: 72px;
-        letter-spacing: -5px
+        font-size: clamp(42px, 13.5vw, 64px);
+        letter-spacing: clamp(-4px,-.8vw,-2px);
+        margin: 9px 0 25px
     }
 
-    .phone-scene {min-height:410px}
+    .phone-scene {min-height:390px}
+    .final .button {width:min(100%,260px)}
 
     .footer-main nav,
     .legal {
@@ -1088,9 +1116,8 @@ footer {
     .process li {grid-template-columns:38px 1fr;gap:12px}
     .confidence {padding:55px 16px}
     .confidence h2 {font-size:34px}
-    .final h2 {font-size:58px}
     .final {width:calc(100% - 20px);padding:38px 15px}
-    .phone-scene {min-height:390px}
+    .phone-scene {min-height:380px}
     .floating {padding:13px 15px}
 }
 
