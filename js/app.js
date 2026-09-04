@@ -1,119 +1,92 @@
 "use strict";
 
-const panel = document.querySelector("#chatPanel");
-const overlay = document.querySelector("#chatOverlay");
-const closeButton = document.querySelector("#chatClose");
-const form = document.querySelector("#chatForm");
-const input = document.querySelector("#chatInput");
-const messages = document.querySelector("#chatMessages");
-const chatTriggers = [...document.querySelectorAll("[data-open-chat]")];
-let lastFocusedElement = null;
+const TAWK_EMBED_URL = "https://embed.tawk.to/6a9b35f1d880fe3443bd79d3/1k1n4ldpo";
+const chatTriggers = [...document.querySelectorAll("[data-tawk-chat]")];
+const chatStatus = document.querySelector("#chatStatus");
+let tawkLoadPromise;
 
-function openChat(text = "") {
-  const wasClosed = !panel.classList.contains("active");
-  lastFocusedElement = document.activeElement;
-  panel.classList.add("active");
-  overlay.classList.add("active");
-  panel.inert = false;
-  panel.setAttribute("aria-hidden", "false");
-  chatTriggers.forEach(trigger => trigger.setAttribute("aria-expanded", "true"));
-  document.body.classList.add("lock");
-  window.setTimeout(() => input.focus(), 350);
-  if (text && wasClosed) window.setTimeout(() => send(text), 250);
+function announceChat(message) {
+  if (chatStatus) chatStatus.textContent = message;
 }
 
-function closeChat() {
-  if (!panel.classList.contains("active")) return;
-  panel.classList.remove("active");
-  overlay.classList.remove("active");
-  panel.inert = true;
-  panel.setAttribute("aria-hidden", "true");
-  chatTriggers.forEach(trigger => trigger.setAttribute("aria-expanded", "false"));
-  document.body.classList.remove("lock");
-  lastFocusedElement?.focus?.();
+function setChatBusy(isBusy) {
+  chatTriggers.forEach(trigger => trigger.toggleAttribute("aria-busy", isBusy));
+}
+
+function trackIntent(intent) {
+  if (typeof window.Tawk_API?.addEvent !== "function") return;
+  window.Tawk_API.addEvent(`solicitud-${intent}`, {
+    pagina: window.location.pathname,
+    origen: "club-fortuna"
+  }, error => {
+    if (error) console.warn("No se pudo registrar la intención del chat.", error);
+  });
+}
+
+function loadTawk() {
+  if (typeof window.Tawk_API?.maximize === "function") return Promise.resolve(window.Tawk_API);
+  if (tawkLoadPromise) return tawkLoadPromise;
+
+  tawkLoadPromise = new Promise((resolve, reject) => {
+    const timeoutId = window.setTimeout(() => reject(new Error("Tawk.to tardó demasiado en responder.")), 15000);
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+
+    window.Tawk_API.onLoad = () => {
+      window.clearTimeout(timeoutId);
+      window.Tawk_API.hideWidget?.();
+      resolve(window.Tawk_API);
+    };
+
+    window.Tawk_API.onChatMinimized = () => window.Tawk_API.hideWidget?.();
+
+    const script = document.createElement("script");
+    script.id = "tawk-embed-script";
+    script.async = true;
+    script.src = TAWK_EMBED_URL;
+    script.charset = "UTF-8";
+    script.crossOrigin = "anonymous";
+    script.onerror = () => {
+      window.clearTimeout(timeoutId);
+      reject(new Error("No se pudo cargar Tawk.to."));
+    };
+    document.head.append(script);
+  }).catch(error => {
+    tawkLoadPromise = undefined;
+    document.querySelector("#tawk-embed-script")?.remove();
+    throw error;
+  });
+
+  return tawkLoadPromise;
+}
+
+async function openTawkChat(trigger) {
+  const intent = trigger.dataset.intent || "general";
+  setChatBusy(true);
+  announceChat("Abriendo el chat con un asesor…");
+
+  try {
+    const api = await loadTawk();
+    trackIntent(intent);
+    api.showWidget?.();
+    api.maximize();
+    announceChat("Chat abierto.");
+  } catch (error) {
+    console.error(error);
+    announceChat("No fue posible abrir el chat. Inténtalo nuevamente.");
+  } finally {
+    setChatBusy(false);
+  }
 }
 
 chatTriggers.forEach(trigger => {
-  trigger.setAttribute("aria-expanded", "false");
-  trigger.addEventListener("click", () => openChat(trigger.dataset.message || ""));
+  trigger.setAttribute("aria-haspopup", "dialog");
+  trigger.addEventListener("click", () => openTawkChat(trigger));
+
+  const warmTawk = () => loadTawk().catch(() => {});
+  trigger.addEventListener("pointerenter", warmTawk, { once: true });
+  trigger.addEventListener("focus", warmTawk, { once: true });
 });
-
-document.querySelectorAll("[data-quick-message]").forEach(button => {
-  button.addEventListener("click", () => send(button.dataset.quickMessage));
-});
-
-closeButton.addEventListener("click", closeChat);
-overlay.addEventListener("click", closeChat);
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") closeChat();
-  if (event.key !== "Tab" || !panel.classList.contains("active")) return;
-  const focusable = [...panel.querySelectorAll("button, input, [tabindex]:not([tabindex='-1'])")];
-  const first = focusable[0];
-  const last = focusable[focusable.length - 1];
-  if (event.shiftKey && document.activeElement === first) {
-    event.preventDefault();
-    last.focus();
-  } else if (!event.shiftKey && document.activeElement === last) {
-    event.preventDefault();
-    first.focus();
-  }
-});
-
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  const value = input.value.trim();
-  if (!value) return;
-  input.value = "";
-  send(value);
-});
-
-async function send(text) {
-  addMessage(text, "user");
-  scrollMessages();
-  showTyping();
-  await new Promise(resolve => window.setTimeout(resolve, 700));
-  document.querySelector("#typing")?.remove();
-  addMessage(getReply(text), "operator");
-  scrollMessages();
-}
-
-function addMessage(text, sender) {
-  const wrapper = document.createElement("div");
-  const content = document.createElement("div");
-  const bubble = document.createElement("p");
-  const time = document.createElement("small");
-  wrapper.className = `message ${sender}`;
-  bubble.textContent = text;
-  time.textContent = new Intl.DateTimeFormat("es-EC", { hour: "2-digit", minute: "2-digit" }).format(new Date());
-  content.append(bubble, time);
-  wrapper.append(content);
-  messages.append(wrapper);
-}
-
-function showTyping() {
-  document.querySelector("#typing")?.remove();
-  const wrapper = document.createElement("div");
-  const bubble = document.createElement("p");
-  wrapper.id = "typing";
-  wrapper.className = "message operator";
-  bubble.textContent = "Escribiendo...";
-  wrapper.append(bubble);
-  messages.append(wrapper);
-  scrollMessages();
-}
-
-function getReply(text) {
-  const value = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  if (value.includes("recarga")) return "Perfecto. Recibimos tu solicitud de recarga. Un asesor continuará contigo para completar el proceso.";
-  if (value.includes("usuario") || value.includes("cuenta")) return "Claro. Podemos ayudarte con tu usuario. Cuéntanos si deseas crear uno nuevo o recuperar el acceso.";
-  if (value.includes("promocion") || value.includes("bono")) return "Con gusto te contamos las promociones disponibles y sus condiciones.";
-  if (value.includes("ayuda") || value.includes("soporte")) return "Estamos para ayudarte. Describe brevemente lo ocurrido para orientarte mejor.";
-  return "Gracias por escribirnos. Recibimos tu mensaje y un asesor continuará con tu atención.";
-}
-
-function scrollMessages() {
-  messages.scrollTo({ top: messages.scrollHeight, behavior: "smooth" });
-}
 
 const revealElements = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
