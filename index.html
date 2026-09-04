@@ -3,177 +3,1143 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Club Fortuna: atención privada y personalizada desde nuestro chat en línea.">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta
+        name="description"
+        content="Club Fortuna: atención privada y personalizada desde nuestro chat en línea."
+    >
+
     <title>Club Fortuna | Atención en línea</title>
-    <link rel="icon" type="image/jpeg" href="./assets/img/logo-club-fortuna.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- FAVICON -->
+    <link
+        rel="icon"
+        type="image/jpeg"
+        href="./assets/img/logo-club-fortuna.jpg"
+    >
+
+    <!-- FUENTES -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css?v=20260904-3">
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="./css/styles.css?v=20260904-4"
+    >
+
 </head>
 
+
 <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- =====================================================
+         ACCESIBILIDAD
+    ====================================================== -->
+
+    <a
+        class="skip-link"
+        href="#contenido"
+    >
+        Saltar al contenido
+    </a>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
     <header>
-        <div class="container nav"><a class="brand" href="#inicio" aria-label="Club Fortuna, inicio"><img src="./assets/img/logo-club-fortuna.jpg" width="320" height="320" alt="Club Fortuna"></a>
-            <nav><a href="#tutorial">Tutorial</a><a href="#servicios">Servicios</a><a href="#proceso">Cómo funciona</a><a
-                    href="#confianza">Confianza</a></nav><button type="button" data-open-chat>Hablar con un asesor</button>
+
+        <div class="container nav">
+
+            <a
+                class="brand"
+                href="#inicio"
+                aria-label="Club Fortuna, inicio"
+            >
+
+                <img
+                    src="./assets/img/logo-club-fortuna.jpg"
+                    width="320"
+                    height="320"
+                    alt="Club Fortuna"
+                >
+
+            </a>
+
+
+            <nav>
+
+                <a href="#tutorial">
+                    Tutorial
+                </a>
+
+                <a href="#servicios">
+                    Servicios
+                </a>
+
+                <a href="#proceso">
+                    Cómo funciona
+                </a>
+
+                <a href="#confianza">
+                    Confianza
+                </a>
+
+            </nav>
+
+
+            <!-- ABRE EL CHAT INTERNO -->
+
+            <button
+                type="button"
+                data-tawk-chat
+            >
+                Hablar con un asesor
+            </button>
+
         </div>
+
     </header>
+
+
+
+    <!-- =====================================================
+         CONTENIDO PRINCIPAL
+    ====================================================== -->
+
     <main id="contenido">
-        <section class="hero" id="inicio">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+
             <div class="orb"></div>
+
+
             <div class="container hero-grid">
+
+
+                <!-- TEXTO -->
+
                 <div class="hero-copy reveal">
-                    <p class="eyebrow"><b class="dot"></b> Atención disponible ahora</p>
-                    <h1>Todo lo que necesitas, <em>en un solo lugar.</em></h1>
-                    <p class="lead">Resuelve tus consultas, solicita tu usuario y gestiona tus recargas con
-                        acompañamiento personalizado, rápido y privado.</p>
-                    <div class="actions"><button type="button" class="button primary" data-open-chat>Comenzar conversación</button><a
-                            href="#proceso">Conocer el proceso</a></div>
-                    <div class="channel-links" aria-label="Canales oficiales de Club Fortuna">
-                        <a class="channel-link whatsapp" href="https://whatsapp.com/channel/0029VbDCTBD6WaKn9S9Fa80W" target="_blank" rel="noopener noreferrer" aria-label="Abrir el canal de Club Fortuna en WhatsApp"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.05 4.91A9.82 9.82 0 0 0 3.59 16.75L2.2 21.83l5.2-1.36a9.81 9.81 0 0 0 4.69 1.19h.01A9.82 9.82 0 0 0 19.05 4.91Zm-6.95 15.1a8.13 8.13 0 0 1-4.14-1.13l-.3-.18-3.08.81.82-3-.2-.31a8.18 8.18 0 1 1 6.9 3.81Zm4.48-6.13c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.15.16-.29.18-.54.06a6.7 6.7 0 0 1-1.98-1.22 7.42 7.42 0 0 1-1.37-1.7c-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.06s.89 2.39 1.01 2.55c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.17.21-.58.21-1.07.15-1.17-.06-.1-.23-.17-.48-.29Z"/></svg></span> WhatsApp</a>
-                        <a class="channel-link telegram" href="https://t.me/clubfortunacasino" target="_blank" rel="noopener noreferrer" aria-label="Abrir Club Fortuna en Telegram"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m21.45 2.62-3.17 18.1c-.24 1.28-.87 1.6-1.76 1l-4.83-3.56-2.33 2.24c-.26.26-.47.47-.97.47l.35-4.91 8.94-8.08c.39-.35-.08-.54-.6-.19L6.03 14.65l-4.76-1.49c-1.03-.32-1.05-1.03.22-1.53L20.1 4.46c.86-.32 1.62.19 1.35-1.84Z"/></svg></span> Telegram</a>
+
+                    <p class="eyebrow">
+
+                        <b class="dot"></b>
+
+                        Atención disponible ahora
+
+                    </p>
+
+
+                    <h1>
+
+                        Todo lo que necesitas,
+
+                        <em>
+                            en un solo lugar.
+                        </em>
+
+                    </h1>
+
+
+                    <p class="lead">
+
+                        Resuelve tus consultas,
+                        solicita tu usuario y gestiona tus recargas
+                        con acompañamiento personalizado,
+                        rápido y privado.
+
+                    </p>
+
+
+
+                    <div class="actions">
+
+                        <!-- ABRE EL CHAT INTERNO -->
+
+                        <button
+                            type="button"
+                            class="button primary"
+                            data-tawk-chat
+                        >
+                            Hablar con cajero
+                        </button>
+
+
+                        <a href="#proceso">
+                            Conocer el proceso
+                        </a>
+
                     </div>
-                    <div class="trust"><span>Atención directa</span><span>Canal privado</span><span>Respuesta
-                            ágil</span></div>
+
+
+
+                    <!-- CANALES -->
+
+                    <div
+                        class="channel-links"
+                        aria-label="Canales oficiales de Club Fortuna"
+                    >
+
+
+                        <!-- WHATSAPP -->
+
+                        <a
+                            class="channel-link whatsapp"
+                            href="https://whatsapp.com/channel/0029VbDCTBD6WaKn9S9Fa80W"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Abrir el canal de Club Fortuna en WhatsApp"
+                        >
+
+                            <span aria-hidden="true">
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="M19.05 4.91A9.82 9.82 0 0 0 3.59 16.75L2.2 21.83l5.2-1.36a9.81 9.81 0 0 0 4.69 1.19h.01A9.82 9.82 0 0 0 19.05 4.91Zm-6.95 15.1a8.13 8.13 0 0 1-4.14-1.13l-.3-.18-3.08.81.82-3-.2-.31a8.18 8.18 0 1 1 6.9 3.81Zm4.48-6.13c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.15.16-.29.18-.54.06a6.7 6.7 0 0 1-1.98-1.22 7.42 7.42 0 0 1-1.37-1.7c-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.06s.89 2.39 1.01 2.55c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.17.21-.58.21-1.07.15-1.17-.06-.1-.23-.17-.48-.29Z"/>
+
+                                </svg>
+
+                            </span>
+
+                            WhatsApp
+
+                        </a>
+
+
+
+                        <!-- TELEGRAM -->
+
+                        <a
+                            class="channel-link telegram"
+                            href="https://t.me/clubfortunacasino"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Abrir Club Fortuna en Telegram"
+                        >
+
+                            <span aria-hidden="true">
+
+                                <svg viewBox="0 0 24 24">
+
+                                    <path d="m21.45 2.62-3.17 18.1c-.24 1.28-.87 1.6-1.76 1l-4.83-3.56-2.33 2.24c-.26.26-.47.47-.97.47l.35-4.91 8.94-8.08c.39-.35-.08-.54-.6-.19L6.03 14.65l-4.76-1.49c-1.03-.32-1.05-1.03.22-1.53L20.1 4.46c.86-.32 1.62.19 1.35-1.84Z"/>
+
+                                </svg>
+
+                            </span>
+
+                            Telegram
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="trust">
+
+                        <span>
+                            Atención directa
+                        </span>
+
+                        <span>
+                            Canal privado
+                        </span>
+
+                        <span>
+                            Respuesta ágil
+                        </span>
+
+                    </div>
+
                 </div>
+
+
+
+                <!-- IMAGEN HERO -->
+
                 <div class="hero-card-wrap chip-stage reveal delay">
-                    <div class="chip-glow" aria-hidden="true"></div>
-                    <img class="vip-chip" src="./assets/img/ficha-vip.png" width="1254" height="1254" alt="Ficha de casino azul marino y dorada de Club Fortuna" decoding="async">
-                    <small class="caption">Una experiencia distinguida, creada para ti.</small>
+
+                    <div
+                        class="chip-glow"
+                        aria-hidden="true"
+                    ></div>
+
+
+                    <img
+                        class="vip-chip"
+                        src="./assets/img/ficha-vip.png"
+                        width="1254"
+                        height="1254"
+                        alt="Ficha de casino azul marino y dorada de Club Fortuna"
+                        decoding="async"
+                    >
+
+
+                    <small class="caption">
+
+                        Una experiencia distinguida,
+                        creada para ti.
+
+                    </small>
+
                 </div>
+
             </div>
+
         </section>
+
+
+
+        <!-- =================================================
+             TICKER
+        ================================================== -->
+
         <div class="ticker">
+
             <div class="ticker-track">
-                <div class="ticker-group"><span>Atención personalizada</span><span>Soporte en línea</span><span>Gestiones simples</span><span>Canal privado</span></div>
-                <div class="ticker-group" aria-hidden="true"><span>Atención personalizada</span><span>Soporte en línea</span><span>Gestiones simples</span><span>Canal privado</span></div>
-                <div class="ticker-group" aria-hidden="true"><span>Atención personalizada</span><span>Soporte en línea</span><span>Gestiones simples</span><span>Canal privado</span></div>
-                <div class="ticker-group" aria-hidden="true"><span>Atención personalizada</span><span>Soporte en línea</span><span>Gestiones simples</span><span>Canal privado</span></div>
+
+
+                <div class="ticker-group">
+
+                    <span>
+                        Atención personalizada
+                    </span>
+
+                    <span>
+                        Soporte en línea
+                    </span>
+
+                    <span>
+                        Gestiones simples
+                    </span>
+
+                    <span>
+                        Canal privado
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="ticker-group"
+                    aria-hidden="true"
+                >
+
+                    <span>
+                        Atención personalizada
+                    </span>
+
+                    <span>
+                        Soporte en línea
+                    </span>
+
+                    <span>
+                        Gestiones simples
+                    </span>
+
+                    <span>
+                        Canal privado
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="ticker-group"
+                    aria-hidden="true"
+                >
+
+                    <span>
+                        Atención personalizada
+                    </span>
+
+                    <span>
+                        Soporte en línea
+                    </span>
+
+                    <span>
+                        Gestiones simples
+                    </span>
+
+                    <span>
+                        Canal privado
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="ticker-group"
+                    aria-hidden="true"
+                >
+
+                    <span>
+                        Atención personalizada
+                    </span>
+
+                    <span>
+                        Soporte en línea
+                    </span>
+
+                    <span>
+                        Gestiones simples
+                    </span>
+
+                    <span>
+                        Canal privado
+                    </span>
+
+                </div>
+
             </div>
+
         </div>
-        <section class="tutorial-section" id="tutorial" aria-labelledby="tutorial-title">
+
+
+
+        <!-- =================================================
+             VIDEO TUTORIAL
+        ================================================== -->
+
+        <section
+            class="tutorial-section"
+            id="tutorial"
+            aria-labelledby="tutorial-title"
+        >
+
             <div class="container">
+
                 <div class="tutorial-card reveal">
+
+
                     <div class="tutorial-heading">
-                        <span class="tutorial-kicker">GUÍA RÁPIDA</span>
-                        <h2 id="tutorial-title">Video tutorial</h2>
-                        <p>Agrega aquí un video para guiar a tus clientes paso a paso.</p>
+
+                        <span class="tutorial-kicker">
+
+                            GUÍA RÁPIDA
+
+                        </span>
+
+
+                        <h2 id="tutorial-title">
+
+                            Video tutorial
+
+                        </h2>
+
+
+                        <p>
+
+                            Agrega aquí un video para guiar
+                            a tus clientes paso a paso.
+
+                        </p>
+
                     </div>
-                    <!-- Reemplaza este bloque por un elemento video o iframe cuando tengas el archivo o enlace. -->
-                    <div class="video-placeholder" data-video-slot role="img" aria-label="Espacio reservado para el video tutorial, formato panorámico 16 por 9">
-                        <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 6.2v11.6L18 12 8.5 6.2Z"/></svg></span>
-                        <span><strong>Tu video tutorial irá aquí</strong><small>Formato recomendado: MP4 o YouTube · 16:9</small></span>
+
+
+
+                    <div
+                        class="video-placeholder"
+                        data-video-slot
+                        role="img"
+                        aria-label="Espacio reservado para el video tutorial"
+                    >
+
+                        <span
+                            class="play-icon"
+                            aria-hidden="true"
+                        >
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path d="M8.5 6.2v11.6L18 12 8.5 6.2Z"/>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span>
+
+                            <strong>
+                                Tu video tutorial irá aquí
+                            </strong>
+
+                            <small>
+                                Formato recomendado:
+                                MP4 o YouTube · 16:9
+                            </small>
+
+                        </span>
+
                     </div>
+
                 </div>
+
             </div>
+
         </section>
-        <section class="section" id="servicios">
+
+
+
+        <!-- =================================================
+             SERVICIOS
+        ================================================== -->
+
+        <section
+            class="section"
+            id="servicios"
+        >
+
             <div class="container">
+
+
                 <div class="section-head reveal">
+
                     <div>
-                        <p class="eyebrow">Lo hacemos sencillo</p>
-                        <h2>Elige lo que necesitas.</h2>
+
+                        <p class="eyebrow">
+
+                            Lo hacemos sencillo
+
+                        </p>
+
+
+                        <h2>
+
+                            Elige lo que necesitas.
+
+                        </h2>
+
                     </div>
-                    <p>Te conectamos con una persona preparada para acompañarte durante todo el proceso.</p>
+
+
+                    <p>
+
+                        Te conectamos con una persona
+                        preparada para acompañarte
+                        durante todo el proceso.
+
+                    </p>
+
                 </div>
+
+
+
                 <div class="services">
-                    <article class="reveal"><b>01</b>
-                        <figure class="service-media"><img src="./assets/img/servicio-recargas.png" width="1448" height="1086" alt="Ficha de casino dorada representando una recarga" loading="lazy" decoding="async"></figure>
-                        <h3>Recargas</h3>
-                        <p>Gestiona tu solicitud de forma directa y recibe acompañamiento en cada paso.</p><button
-                            type="button" data-open-chat data-message="Quiero realizar una recarga">Solicitar recarga</button>
+
+
+                    <!-- RECARGAS -->
+
+                    <article class="reveal">
+
+                        <b>
+                            01
+                        </b>
+
+
+                        <figure class="service-media">
+
+                            <img
+                                src="./assets/img/servicio-recargas.png"
+                                width="1448"
+                                height="1086"
+                                alt="Ficha de casino dorada representando una recarga"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </figure>
+
+
+                        <h3>
+                            Recargas
+                        </h3>
+
+
+                        <p>
+
+                            Gestiona tu solicitud de forma
+                            directa y recibe acompañamiento
+                            en cada paso.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            data-tawk-chat
+                            data-intent="recarga"
+                        >
+                            Solicitar recarga
+                        </button>
+
                     </article>
-                    <article class="reveal"><b>02</b>
-                        <figure class="service-media"><img src="./assets/img/servicio-usuario.png" width="1448" height="1086" alt="Tarjeta de membresía y ficha de casino para nuevo usuario" loading="lazy" decoding="async"></figure>
-                        <h3>Nuevo usuario</h3>
-                        <p>Obtén la información necesaria para comenzar y resolver tus dudas de acceso.</p><button
-                            type="button" data-open-chat data-message="Quiero solicitar un usuario">Solicitar usuario</button>
+
+
+
+                    <!-- NUEVO USUARIO -->
+
+                    <article class="reveal">
+
+                        <b>
+                            02
+                        </b>
+
+
+                        <figure class="service-media">
+
+                            <img
+                                src="./assets/img/servicio-usuario.png"
+                                width="1448"
+                                height="1086"
+                                alt="Tarjeta de membresía y ficha de casino para nuevo usuario"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </figure>
+
+
+                        <h3>
+                            Nuevo usuario
+                        </h3>
+
+
+                        <p>
+
+                            Obtén la información necesaria
+                            para comenzar y resolver
+                            tus dudas de acceso.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            data-tawk-chat
+                            data-intent="nuevo-usuario"
+                        >
+                            Solicitar usuario
+                        </button>
+
                     </article>
-                    <article class="featured reveal"><b>03</b>
-                        <figure class="service-media"><img src="./assets/img/servicio-soporte.png" width="1448" height="1086" alt="Auriculares de atención y ficha de casino para soporte personal" loading="lazy" decoding="async"></figure>
-                        <h3>Soporte personal</h3>
-                        <p>Cuéntanos qué ocurre. Un asesor revisará tu consulta y te orientará.</p><button
-                            type="button" data-open-chat data-message="Necesito ayuda con mi cuenta">Recibir ayuda</button>
+
+
+
+                    <!-- SOPORTE -->
+
+                    <article class="featured reveal">
+
+                        <b>
+                            03
+                        </b>
+
+
+                        <figure class="service-media">
+
+                            <img
+                                src="./assets/img/servicio-soporte.png"
+                                width="1448"
+                                height="1086"
+                                alt="Auriculares de atención y ficha de casino para soporte personal"
+                                loading="lazy"
+                                decoding="async"
+                            >
+
+                        </figure>
+
+
+                        <h3>
+                            Soporte personal
+                        </h3>
+
+
+                        <p>
+
+                            Cuéntanos qué ocurre.
+                            Un asesor revisará tu consulta
+                            y te orientará.
+
+                        </p>
+
+
+                        <button
+                            type="button"
+                            data-tawk-chat
+                            data-intent="soporte"
+                        >
+                            Recibir ayuda
+                        </button>
+
                     </article>
+
                 </div>
+
             </div>
+
         </section>
-        <section class="section process" id="proceso">
+
+
+
+        <!-- =================================================
+             PROCESO
+        ================================================== -->
+
+        <section
+            class="section process"
+            id="proceso"
+        >
+
             <div class="container process-grid">
+
+
                 <div class="process-copy reveal">
-                    <p class="eyebrow">Así funciona</p>
-                    <h2>De tu consulta a una solución, sin vueltas.</h2>
-                    <p>Diseñamos un flujo breve para que dediques menos tiempo a esperar y más a disfrutar.</p><button
-                        type="button" class="button primary" data-open-chat>Iniciar ahora</button>
+
+                    <p class="eyebrow">
+                        Así funciona
+                    </p>
+
+
+                    <h2>
+
+                        De tu consulta a una solución,
+                        sin vueltas.
+
+                    </h2>
+
+
+                    <p>
+
+                        Diseñamos un flujo breve para que
+                        dediques menos tiempo a esperar
+                        y más a disfrutar.
+
+                    </p>
+
+
+                    <button
+                        type="button"
+                        class="button primary"
+                        data-tawk-chat
+                    >
+                        Hablar con cajero
+                    </button>
+
                 </div>
+
+
+
                 <ol>
-                    <li class="reveal"><b>01</b>
+
+
+                    <li class="reveal">
+
+                        <b>
+                            01
+                        </b>
+
+
                         <div>
-                            <h3>Inicia el chat</h3>
-                            <p>Abre la conversación desde cualquier botón de esta página.</p>
+
+                            <h3>
+                                Inicia el chat
+                            </h3>
+
+
+                            <p>
+
+                                Abre la conversación desde
+                                cualquier botón de esta página.
+
+                            </p>
+
                         </div>
+
                     </li>
-                    <li class="reveal"><b>02</b>
+
+
+
+                    <li class="reveal">
+
+                        <b>
+                            02
+                        </b>
+
+
                         <div>
-                            <h3>Cuéntanos qué necesitas</h3>
-                            <p>Selecciona una opción o escribe tu consulta con tus propias palabras.</p>
+
+                            <h3>
+                                Cuéntanos qué necesitas
+                            </h3>
+
+
+                            <p>
+
+                                Escribe tu consulta directamente
+                                en nuestro chat en línea.
+
+                            </p>
+
                         </div>
+
                     </li>
-                    <li class="reveal"><b>03</b>
+
+
+
+                    <li class="reveal">
+
+                        <b>
+                            03
+                        </b>
+
+
                         <div>
-                            <h3>Recibe atención</h3>
-                            <p>Un asesor continuará contigo hasta completar tu gestión.</p>
+
+                            <h3>
+                                Recibe atención
+                            </h3>
+
+
+                            <p>
+
+                                Un cajero continuará contigo
+                                hasta completar tu gestión.
+
+                            </p>
+
                         </div>
+
                     </li>
+
                 </ol>
+
             </div>
+
         </section>
-        <section class="section" id="confianza">
+
+
+
+        <!-- =================================================
+             CONFIANZA
+        ================================================== -->
+
+        <section
+            class="section"
+            id="confianza"
+        >
+
             <div class="container confidence reveal">
-                <p class="eyebrow">Tu tranquilidad importa</p>
-                <h2>Conversaciones privadas.<br>Atención realmente humana.</h2>
-                <p>Todo sucede dentro de nuestro canal de atención. Sin redirecciones innecesarias y con acompañamiento
-                    claro.</p>
-                <div><span>Canal directo</span><span>WhatsApp y Telegram</span><span>Atención responsable</span></div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container footer-main"><a class="brand" href="#inicio" aria-label="Club Fortuna, inicio"><img src="./assets/img/logo-club-fortuna.jpg" width="320" height="320" alt="Club Fortuna"></a>
-            <p>Atención en línea, simple y personalizada.</p>
-            <nav aria-label="Canales oficiales"><a class="footer-social whatsapp" href="https://whatsapp.com/channel/0029VbDCTBD6WaKn9S9Fa80W" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M19.05 4.91A9.82 9.82 0 0 0 3.59 16.75L2.2 21.83l5.2-1.36a9.81 9.81 0 0 0 4.69 1.19h.01A9.82 9.82 0 0 0 19.05 4.91Zm-6.95 15.1a8.13 8.13 0 0 1-4.14-1.13l-.3-.18-3.08.81.82-3-.2-.31a8.18 8.18 0 1 1 6.9 3.81Zm4.48-6.13c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.15.16-.29.18-.54.06a6.7 6.7 0 0 1-1.98-1.22 7.42 7.42 0 0 1-1.37-1.7c-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.06s.89 2.39 1.01 2.55c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.17.21-.58.21-1.07.15-1.17-.06-.1-.23-.17-.48-.29Z"/></svg>WhatsApp</a><a class="footer-social telegram" href="https://t.me/clubfortunacasino" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21.45 2.62-3.17 18.1c-.24 1.28-.87 1.6-1.76 1l-4.83-3.56-2.33 2.24c-.26.26-.47.47-.97.47l.35-4.91 8.94-8.08c.39-.35-.08-.54-.6-.19L6.03 14.65l-4.76-1.49c-1.03-.32-1.05-1.03.22-1.53L20.1 4.46c.86-.32 1.62.19 1.35-1.84Z"/></svg>Telegram</a></nav>
-        </div>
-        <div class="container legal"><span>Solo para mayores de 18 años. Juega responsablemente.</span><span>© 2026 Club
-                Fortuna</span></div>
-    </footer>
-    <button type="button" class="floating" data-open-chat aria-haspopup="dialog" aria-controls="chatPanel"><b class="dot"></b> Chat en línea</button>
-    <div class="overlay" id="chatOverlay"></div>
-    <aside class="chat" id="chatPanel" role="dialog" aria-modal="true" aria-labelledby="chatTitle" aria-hidden="true" tabindex="-1" inert>
-        <div class="chat-head">
-            <div><small>CLUB FORTUNA</small><strong id="chatTitle">Atención al cliente</strong><span><b class="dot"></b> Asesores
-                    disponibles</span></div><button type="button" id="chatClose">Cerrar</button>
-        </div>
-        <div class="messages" id="chatMessages" aria-live="polite">
-            <div class="message operator">
+
+                <p class="eyebrow">
+
+                    Tu tranquilidad importa
+
+                </p>
+
+
+                <h2>
+
+                    Conversaciones privadas.
+
+                    <br>
+
+                    Atención realmente humana.
+
+                </h2>
+
+
+                <p>
+
+                    Todo sucede dentro de nuestro canal
+                    de atención, con acompañamiento claro
+                    durante cada gestión.
+
+                </p>
+
+
                 <div>
-                    <p>Hola, te damos la bienvenida a Club Fortuna. ¿En qué podemos ayudarte?</p><small>Atención en
-                        línea</small>
+
+                    <span>
+                        Canal directo
+                    </span>
+
+                    <span>
+                        WebChat en línea
+                    </span>
+
+                    <span>
+                        Atención responsable
+                    </span>
+
                 </div>
+
             </div>
-            <div class="quick"><button type="button" data-quick-message="Quiero realizar una recarga">Realizar una
-                    recarga</button><button type="button" data-quick-message="Quiero solicitar un usuario">Solicitar un
-                    usuario</button><button type="button" data-quick-message="Necesito soporte">Necesito ayuda</button></div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <div class="container footer-main">
+
+
+            <a
+                class="brand"
+                href="#inicio"
+                aria-label="Club Fortuna, inicio"
+            >
+
+                <img
+                    src="./assets/img/logo-club-fortuna.jpg"
+                    width="320"
+                    height="320"
+                    alt="Club Fortuna"
+                >
+
+            </a>
+
+
+            <p>
+
+                Atención en línea,
+                simple y personalizada.
+
+            </p>
+
+
+
+            <nav aria-label="Canales oficiales">
+
+
+                <!-- WHATSAPP -->
+
+                <a
+                    class="footer-social whatsapp"
+                    href="https://whatsapp.com/channel/0029VbDCTBD6WaKn9S9Fa80W"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                    >
+
+                        <path d="M19.05 4.91A9.82 9.82 0 0 0 3.59 16.75L2.2 21.83l5.2-1.36a9.81 9.81 0 0 0 4.69 1.19h.01A9.82 9.82 0 0 0 19.05 4.91Zm-6.95 15.1a8.13 8.13 0 0 1-4.14-1.13l-.3-.18-3.08.81.82-3-.2-.31a8.18 8.18 0 1 1 6.9 3.81Zm4.48-6.13c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.15.16-.29.18-.54.06a6.7 6.7 0 0 1-1.98-1.22 7.42 7.42 0 0 1-1.37-1.7c-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.66.31-.22.25-.86.85-.86 2.06s.89 2.39 1.01 2.55c.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.66-1.17.21-.58.21-1.07.15-1.17-.06-.1-.23-.17-.48-.29Z"/>
+
+                    </svg>
+
+                    WhatsApp
+
+                </a>
+
+
+
+                <!-- TELEGRAM -->
+
+                <a
+                    class="footer-social telegram"
+                    href="https://t.me/clubfortunacasino"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                    >
+
+                        <path d="m21.45 2.62-3.17 18.1c-.24 1.28-.87 1.6-1.76 1l-4.83-3.56-2.33 2.24c-.26.26-.47.47-.97.47l.35-4.91 8.94-8.08c.39-.35-.08-.54-.6-.19L6.03 14.65l-4.76-1.49c-1.03-.32-1.05-1.03.22-1.53L20.1 4.46c.86-.32 1.62.19 1.35-1.84Z"/>
+
+                    </svg>
+
+                    Telegram
+
+                </a>
+
+            </nav>
+
         </div>
-        <form id="chatForm"><label class="sr" for="chatInput">Mensaje</label><input id="chatInput"
-                placeholder="Escribe tu mensaje..." maxlength="500"><button type="submit">Enviar</button></form><small
-            class="chat-foot">Canal privado · Atención en línea</small>
+
+
+
+        <div class="container legal">
+
+            <span>
+
+                Solo para mayores de 18 años.
+                Juega responsablemente.
+
+            </span>
+
+
+            <span>
+
+                © 2026 Club Fortuna
+
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         BOTÓN FLOTANTE PERSONALIZADO
+         ABRE EL CHAT INTERNO
+    ====================================================== -->
+
+    <button
+        type="button"
+        class="floating"
+        data-tawk-chat
+        aria-haspopup="dialog"
+        aria-label="Abrir chat en línea"
+    >
+
+        <b class="dot"></b>
+
+        Hablar con cajero
+
+    </button>
+
+
+
+    <!-- =====================================================
+         CHAT INTERNO
+    ====================================================== -->
+
+    <div
+        class="overlay"
+        id="chatOverlay"
+        hidden
+        aria-hidden="true"
+    ></div>
+
+
+    <aside
+        class="chat"
+        id="chatPanel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="chatTitle"
+        tabindex="-1"
+        aria-hidden="true"
+        inert
+        hidden
+    >
+
+        <div class="chat-head">
+
+            <div>
+
+                <small>
+                    CLUB FORTUNA
+                </small>
+
+                <strong id="chatTitle">
+                    Atención al cliente
+                </strong>
+
+                <span>
+
+                    <b class="dot"></b>
+
+                    Asesores disponibles
+
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="chatClose"
+            >
+                Cerrar
+            </button>
+
+        </div>
+
+
+
+        <div
+            class="messages"
+            id="chatMessages"
+        ></div>
+
+
+
+        <form id="chatForm">
+
+            <label
+                class="sr"
+                for="chatInput"
+            >
+                Mensaje
+            </label>
+
+            <input
+                id="chatInput"
+                placeholder="Escribe tu mensaje..."
+                maxlength="500"
+            >
+
+            <button type="submit">
+                Enviar
+            </button>
+
+        </form>
+
     </aside>
-    <script src="./js/app.js?v=20260904-3"></script>
+
+
+
+    <!-- =====================================================
+         TU JAVASCRIPT ACTUAL
+    ====================================================== -->
+
+    <p id="chatStatus" class="sr" role="status" aria-live="polite"></p>
+    <script src="./js/app.js?v=20260904-5"></script>
 </body>
 
 </html>
