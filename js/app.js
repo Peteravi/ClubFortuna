@@ -120,10 +120,14 @@ if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add("visible");
+      window.requestAnimationFrame(() => entry.target.classList.add("visible"));
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.1, rootMargin: "0px 0px -35px" });
+  }, { threshold: 0.06, rootMargin: "0px 0px -24px" });
+
+  document.querySelectorAll(".services .reveal, .process li.reveal").forEach((element, index) => {
+    element.style.transitionDelay = `${Math.min(index * 90, 240)}ms`;
+  });
   revealElements.forEach(element => observer.observe(element));
 } else {
   revealElements.forEach(element => element.classList.add("visible"));

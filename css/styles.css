@@ -53,6 +53,8 @@ a {
     text-decoration: none
 }
 
+img,video,iframe,svg {max-width:100%}
+
 .container {
     width: min(1180px, calc(100% - clamp(28px, 5vw, 48px)));
     margin: auto
@@ -105,12 +107,18 @@ header {
 }
 
 .brand {
-    font: 800 22px var(--display);
-    letter-spacing: -1px
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto
 }
 
-.brand i {
-    font-weight: 400
+.brand img {
+    display: block;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 22px #0008, 0 0 0 1px #f4d77a55
 }
 
 .nav nav {
@@ -153,7 +161,9 @@ header {
     bottom: -380px;
     background: var(--royal);
     filter: blur(110px);
-    opacity: .2
+    opacity: .2;
+    animation:orbDrift 8s ease-in-out infinite alternate;
+    will-change:transform,opacity
 }
 
 .hero-grid {
@@ -238,6 +248,40 @@ header {
     font-weight: 700
 }
 
+.channel-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px
+}
+
+.channel-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border: 1px solid #ffffff2b;
+    border-radius: 999px;
+    background: #ffffff0d;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    transition: transform .25s, border-color .25s, background .25s
+}
+
+.channel-link span {
+    display: grid;
+    width: 27px;
+    height: 27px;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 9px
+}
+
+.channel-link.whatsapp span {background:#25D366;color:#07130b}
+.channel-link.telegram span {background:#229ED9;color:#fff}
+.channel-link:hover {transform:translateY(-2px);border-color:#f4d77a80;background:#ffffff16}
+
 .trust {
     display: flex;
     gap: 28px;
@@ -316,8 +360,9 @@ header {
 .ticker-track {
     display: inline-flex;
     width: max-content;
-    animation: marquee 16s linear infinite;
-    will-change: transform
+    animation: marquee 18s linear infinite;
+    will-change: transform;
+    backface-visibility:hidden
 }
 
 .ticker-group {
@@ -644,6 +689,10 @@ footer {
     font-size: 12px
 }
 
+.footer-main .brand img {width:88px;height:88px}
+.footer-main nav a {border-bottom:1px solid transparent;transition:.2s}
+.footer-main nav a:hover {color:#fff;border-bottom-color:var(--gold-light)}
+
 .legal {
     border-top: 1px solid #ffffff1f;
     padding-top: 24px;
@@ -826,13 +875,17 @@ footer {
 
 .reveal {
     opacity: 0;
-    transform: translateY(28px);
-    transition: .8s
+    transform:translate3d(0,42px,0) scale(.985);
+    filter:blur(5px);
+    transition:opacity .75s ease,transform .85s cubic-bezier(.2,.75,.25,1),filter .7s ease;
+    will-change:opacity,transform,filter
 }
 
 .reveal.visible {
     opacity: 1;
-    transform: none
+    transform:none;
+    filter:none;
+    will-change:auto
 }
 
 .delay {
@@ -858,6 +911,11 @@ footer {
     to {
         transform: translate3d(-25%,0,0)
     }
+}
+
+@keyframes orbDrift {
+    0% {transform:translate3d(-25px,18px,0) scale(.94);opacity:.14}
+    100% {transform:translate3d(25px,-24px,0) scale(1.08);opacity:.28}
 }
 
 @keyframes chipSpin {
@@ -893,6 +951,82 @@ footer {
     58%,100% {transform:translateX(60%) rotate(8deg);opacity:0}
 }
 
+/* Experiencia compacta y canales oficiales */
+.brand img {transition:transform .35s ease,box-shadow .35s ease}
+.brand:hover img {transform:translateY(-2px) rotate(-2deg);box-shadow:0 9px 28px #000a,0 0 0 2px #f4d77a70}
+.hero {min-height:min(680px,100svh);padding:130px 0 70px}
+.chip-stage {min-height:430px}
+.vip-chip {max-width:430px;animation:chipFloat 5.5s ease-in-out infinite}
+.channel-link svg {width:17px;height:17px;fill:currentColor}
+.channel-link span {animation:socialBreathe 3.2s ease-in-out infinite}
+.channel-link.telegram span {animation-delay:-1.6s}
+.section {padding:clamp(70px,8vw,92px) 0}
+.section-head {margin-bottom:38px}
+.services article {min-height:430px;padding:22px 22px 27px}
+.service-media {margin:14px 0 20px}
+.process-grid {gap:clamp(55px,8vw,90px)}
+.process li {padding:26px 0}
+.confidence {padding:70px 40px}
+.final {margin:55px auto;padding:38px 52px}
+.phone-scene {min-height:350px}
+footer {padding:42px 0 22px}
+.footer-main {padding-bottom:34px}
+.footer-social {display:inline-flex;align-items:center;gap:7px}
+.footer-social svg {width:16px;height:16px;fill:currentColor}
+.footer-social.whatsapp {color:#51df85}
+.footer-social.telegram {color:#55b7e8}
+
+.tutorial-card {
+    width:min(100%,780px);
+    margin:0 auto;
+    padding:clamp(16px,3vw,26px);
+    overflow:hidden;
+    border:1px solid #f4d77a38;
+    border-radius:20px;
+    background:linear-gradient(145deg,#10193bf2,#0a0e1ff2);
+    box-shadow:0 20px 50px #0004
+}
+.tutorial-section {padding:clamp(56px,7vw,82px) 0 0}
+.tutorial-heading {margin:0 auto 18px;text-align:center}
+.tutorial-kicker {display:block;margin-bottom:3px;color:var(--gold-light);font-size:9px;font-weight:800;letter-spacing:1.7px}
+.tutorial-heading h2 {font:700 clamp(28px,4vw,42px)/1.1 var(--display);letter-spacing:-1.5px}
+.tutorial-heading p {margin-top:7px;color:var(--muted);font-size:clamp(12px,1.6vw,14px);line-height:1.5}
+.video-placeholder {
+    position:relative;
+    isolation:isolate;
+    aspect-ratio:16/9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:13px;
+    width:100%;
+    padding:20px;
+    overflow:hidden;
+    border:1px dashed #f4d77a70;
+    border-radius:14px;
+    background:linear-gradient(#071028c9,#050814e8),url("../assets/img/casino-vip-ambiente.png") center/cover;
+    color:var(--text)
+}
+.video-placeholder::after {content:"";position:absolute;z-index:-1;inset:-80% -40%;background:linear-gradient(110deg,transparent 43%,#ffffff10 50%,transparent 57%);animation:videoShine 5s ease-in-out infinite}
+.video-placeholder>span:last-child {display:flex;flex-direction:column;min-width:0}
+.video-placeholder strong {font-size:13px}
+.video-placeholder small {margin-top:3px;color:var(--muted);font-size:10px}
+.play-icon {display:grid;flex:0 0 auto;width:46px;height:46px;place-items:center;border-radius:50%;background:var(--lime);color:var(--ink);box-shadow:0 0 0 8px #d4af3718,0 8px 25px #0006;animation:playPulse 2.5s ease-in-out infinite}
+.play-icon svg {width:23px;height:23px;fill:currentColor}
+.tutorial-card video,.tutorial-card iframe {display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:14px;background:#050814}
+
+@keyframes chipFloat {
+    0%,100% {transform:translate3d(0,4px,0) rotateZ(-2deg) rotateX(2deg) scale(.99)}
+    50% {transform:translate3d(0,-12px,0) rotateZ(2deg) rotateX(6deg) scale(1.025)}
+}
+@keyframes playPulse {50% {transform:scale(1.06);box-shadow:0 0 0 13px #d4af3708,0 10px 28px #0007}}
+@keyframes socialBreathe {50% {transform:translateY(-2px) scale(1.08);box-shadow:0 0 0 6px #ffffff0b}}
+@keyframes videoShine {
+    0%,25% {transform:translateX(-55%) rotate(8deg);opacity:0}
+    45% {opacity:1}
+    70%,100% {transform:translateX(55%) rotate(8deg);opacity:0}
+}
+
 @media(max-width:1100px) and (min-width:901px) {
     .hero-grid {grid-template-columns:minmax(0,1fr) minmax(290px,.72fr);gap:28px}
     .hero h1 {font-size:62px}
@@ -922,12 +1056,14 @@ footer {
     .final h2 {font-size:clamp(48px,6vw,60px)}
 
     .hero-grid {
-        gap: 80px
+        gap: 46px
     }
 
     .hero-copy {
         text-align: center
     }
+
+    .channel-links {justify-content:center}
 
     .lead {
         margin: auto
@@ -974,8 +1110,8 @@ footer {
 @media(max-width:760px) {
     .final {
         width: min(620px, calc(100% - 32px));
-        margin: 60px auto;
-        padding: 46px clamp(22px, 6vw, 38px)
+        margin: 42px auto;
+        padding: 38px clamp(22px, 6vw, 38px)
     }
 
     .final-grid {
@@ -994,7 +1130,7 @@ footer {
     }
 
     .phone-scene {
-        min-height: 400px
+        min-height: 350px
     }
 }
 
@@ -1014,9 +1150,7 @@ footer {
 
     .nav>button {min-height:42px}
 
-    .brand {
-        font-size: 19px
-    }
+    .brand img {width:62px;height:62px}
 
     .hero {
         min-height: 0;
@@ -1045,13 +1179,14 @@ footer {
         gap: 10px 18px
     }
 
-    .chip-stage {min-height:min(500px,calc(88vw + 72px))}
+    .chip-stage {min-height:min(410px,calc(82vw + 50px))}
     .vip-chip {width:min(88vw,420px);max-width:100%}
     .chip-stage .caption {right:auto;bottom:0;width:100%}
 
-    .section {
-        padding: 68px 0
-    }
+    .section {padding:58px 0}
+    .tutorial-section {padding:48px 0 0}
+    .tutorial-card {border-radius:16px}
+    .video-placeholder {padding:14px;gap:10px}
 
     .section-head h2,
     .process h2 {
@@ -1081,7 +1216,7 @@ footer {
         margin: 9px 0 25px
     }
 
-    .phone-scene {min-height:390px}
+    .phone-scene {min-height:345px}
     .final .button {width:min(100%,260px)}
 
     .footer-main nav,
@@ -1104,11 +1239,11 @@ footer {
 @media(max-width:390px) {
     .container {width:calc(100% - 22px)}
     .nav>button {padding:10px 11px;font-size:10px}
-    .brand {font-size:17px}
+    .brand img {width:56px;height:56px}
     .hero {padding-top:112px}
     .hero h1 {font-size:41px;letter-spacing:-2.8px}
     .trust {font-size:9px}
-    .chip-stage {min-height:390px}
+    .chip-stage {min-height:330px}
     .vip-chip {width:min(86vw,330px)}
     .section-head h2,.process h2 {font-size:36px}
     .services article {padding:26px 20px}
@@ -1117,8 +1252,12 @@ footer {
     .confidence {padding:55px 16px}
     .confidence h2 {font-size:34px}
     .final {width:calc(100% - 20px);padding:38px 15px}
-    .phone-scene {min-height:380px}
+    .phone-scene {min-height:335px}
     .floating {padding:13px 15px}
+    .video-placeholder {padding:10px;gap:8px}
+    .play-icon {width:40px;height:40px}
+    .video-placeholder strong {font-size:11px}
+    .video-placeholder small {font-size:9px}
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -1129,14 +1268,18 @@ footer {
 
     .reveal {
         opacity: 1;
-        transform: none
+        transform: none;
+        filter:none;
+        will-change:auto
     }
 
+    /* Estos dos movimientos comunican actividad y se conservan de forma lenta y suave. */
     .ticker-track {
-        animation: marquee 26s linear infinite !important
+        animation:marquee 28s linear infinite !important;
+        transform:translate3d(0,0,0)
     }
 
     .vip-chip {
-        animation: chipSpin 14s linear infinite !important
+        animation:chipFloat 8s ease-in-out infinite !important
     }
 }
